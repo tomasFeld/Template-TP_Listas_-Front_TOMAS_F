@@ -8,24 +8,21 @@
 </head>
 <body>
     <header>
-      <!-- Para filtros y navegacion -->
+      <!-- Para filtros y navegación -->
     </header>
 
     <main class="comida-container" id="comidaContainer">
-        <!-- Contenido Dinamico -->
-    </main>     
+        <!-- Contenido Dinámico -->
+    </main>    
 
     <section class="addFood">
-
-
       <form id="agregarComida">
-        <input type="text" id="nombreComida" placeholder="Nombre de la comida">
-        <input type="text" id="categoriaComida" placeholder="Categoría">
-        <input type="text" id="provinciaComida" placeholder="Provincia">
+        <input type="text" id="nombreComida" placeholder="Nombre de la comida" required>
+        <input type="text" id="categoriaComida" placeholder="Categoría" required>
+        <input type="text" id="provinciaComida" placeholder="Provincia" required>
+        <input type="text" id="ingredientesComida" placeholder="Ingredientes (separados por coma)">
         <button type="submit">Agregar Comida</button>
       </form> 
-
-
     </section>
 
     <script type="module" src="./main.js"></script>

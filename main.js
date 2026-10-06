@@ -1,17 +1,3 @@
-
-// fetch('./data/comidas.json')          // Ruta al archivo JSON
-//   .then(response => response.json())  // Convertir la respuesta en JSON
-//   .then(data => {                     // Aquí tienes acceso al JSON en formato de objeto JS
-//     console.log('Comidas cargadas desde JSON:');
-//     console.log(data);  
-//     let comidas = [];  
-//     comidas = data;                   // Asignar el JSON a la variable comidas
-//     console.log('Comidas cargadas desde JSON:' + comidas);
-//   })
-//   .catch(error => {                   // Manejo de errores al leer el archivo JSON
-//     console.error('Error al leer el archivo JSON:', error);
-//   });
-
 let comidas = [
   {
     "nombre": "Asado",
@@ -73,38 +59,54 @@ let comidas = [
     "provincia": "Entre Ríos",
     "ingredientes": ["Harina", "Agua", "Sal", "Grasa"]
   }
-]
+];
 
-  const container = document.getElementById('comidaContainer');
-    const formComidanueva = document.getElementById('agregarComida');
+const container = document.getElementById('comidaContainer');
+const formComidanueva = document.getElementById('agregarComida');
 
+function mostrarComidas() {
+  // Limpia el contenedor para evitar que se dupliquen las tarjetas al re-renderizar
+  container.innerHTML = '';
 
-    function mostrarComidas() {
-    
-      comidas.forEach(comida => {
-        container.innerHTML += `
-          <div class="tarjeta">
-            <h2>${comida.nombre}</h2>
-            <p>${comida.provincia}</p>
-            <span class="categoria">${comida.categoria}</span>
-            <ul>
-              ${comida.ingredientes.map(ingrediente => `<li>- ${ingrediente}</li>`).join('')}
-            </ul>
-          </div>
-        `;
-        
-      });
+  comidas.forEach(comida => {
+    const listaIngredientes = (comida.ingredientes || [])
+      .map(ingrediente => `<li>- ${ingrediente.trim()}</li>`)
+      .join('');
 
-    }
+    container.innerHTML += `
+      <div class="tarjeta">
+        <h2>${comida.nombre}</h2>
+        <p>${comida.provincia}</p>
+        <span class="categoria">${comida.categoria}</span>
+        <ul>
+          ${listaIngredientes}
+        </ul>
+      </div>
+    `;
+  });
+}
 
+// Carga inicial de tarjetas
+mostrarComidas();
 
+// Evento para agregar comida
+formComidanueva.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const nombre = document.getElementById('nombreComida').value;
+  const categoria = document.getElementById('categoriaComida').value;
+  const provincia = document.getElementById('provinciaComida').value;
+
+  const nuevaComida = {
+    nombre: nombre,
+    categoria: categoria,
+    provincia: provincia,
+    ingredientes: [] // Se guarda como lista vacía de forma simple
+  };
+
+  comidas.push(nuevaComida);
   mostrarComidas();
 
-
-    formComidanueva.addEventListener('submit', (event) => {
-      event.preventDefault();
-      // Lógica para agregar nueva comida
-      alerta('Comida agregada correctamente');
-    });
-
-
+  formComidanueva.reset();
+  alert('Comida agregada correctamente');
+});
