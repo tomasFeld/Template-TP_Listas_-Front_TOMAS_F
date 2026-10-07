@@ -65,7 +65,6 @@ const container = document.getElementById('comidaContainer');
 const formComidanueva = document.getElementById('agregarComida');
 
 function mostrarComidas() {
-  // Limpia el contenedor para evitar que se dupliquen las tarjetas al re-renderizar
   container.innerHTML = '';
 
   comidas.forEach(comida => {
@@ -101,7 +100,7 @@ formComidanueva.addEventListener('submit', (event) => {
     nombre: nombre,
     categoria: categoria,
     provincia: provincia,
-    ingredientes: [] // Se guarda como lista vacía de forma simple
+    ingredientes: [] 
   };
 
   comidas.push(nuevaComida);
