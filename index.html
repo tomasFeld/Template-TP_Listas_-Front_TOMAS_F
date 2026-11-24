@@ -7,18 +7,31 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <header>
+    <header class="filtros-container">
+        <h1>Comidas Típicas Argentinas</h1>
+        <div class="controles-filtro">
+            <input type="text" id="busqueda" placeholder="Buscar por nombre, provincia o categoría...">
+            
+            <select id="filtroCategoria">
+                <option value="">Todas las categorías</option>
+            </select>
+
+            <select id="filtroProvincia">
+                <option value="">Todas las provincias</option>
+            </select>
+        </div>
     </header>
 
     <main class="comida-container" id="comidaContainer">
     </main>    
 
     <section class="addFood">
-      <form id="agregarComida">
+      <h2>Agregar nueva comida</h2>
+      <form id="agregarComidaForm">
         <input type="text" id="nombreComida" placeholder="Nombre de la comida" required>
         <input type="text" id="categoriaComida" placeholder="Categoría" required>
         <input type="text" id="provinciaComida" placeholder="Provincia" required>
-        <input type="text" id="ingredientesComida" placeholder="Ingredientes (separados por coma)">
+        <input type="text" id="ingredientesComida" placeholder="Ingredientes (separados por coma)" required>
         <button type="submit">Agregar Comida</button>
       </form> 
     </section>

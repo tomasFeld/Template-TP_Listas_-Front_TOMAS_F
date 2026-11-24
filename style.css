@@ -10,6 +10,39 @@ body {
   color: #333;
 }
 
+.filtros-container {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.filtros-container h1 {
+  margin-bottom: 20px;
+  color: #1a73e8;
+}
+
+.controles-filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.controles-filtro input,
+.controles-filtro select {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  min-width: 220px;
+}
+
+.controles-filtro input {
+  flex: 1;
+  max-width: 350px;
+}
+
 #comidaContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -60,7 +93,6 @@ body {
   margin-bottom: 3px;
 }
 
-/* Formulario sencillo */
 .addFood {
   max-width: 500px;
   margin: 0 auto;
@@ -70,20 +102,26 @@ body {
   border: 1px solid #e0e0e0;
 }
 
-#agregarComida {
+.addFood h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#agregarComidaForm {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-#agregarComida input {
+#agregarComidaForm input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 0.95rem;
 }
 
-#agregarComida button {
+#agregarComidaForm button {
   padding: 10px;
   background-color: #1a73e8;
   color: white;
@@ -93,6 +131,6 @@ body {
   cursor: pointer;
 }
 
-#agregarComida button:hover {
+#agregarComidaForm button:hover {
   background-color: #1557b0;
 }
